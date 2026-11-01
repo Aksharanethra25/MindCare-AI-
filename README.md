@@ -299,9 +299,11 @@ MindCare AI – Pause. Reflect. Recharge. 🌿
 🔗 Project Links
 
 GitHub Repository:
+
 https://github.com/Aksharanethra25/MindCare-AI-
 
 Live Application:
+
 https://aksharanethra25-mindcare-ai--app-mqe0vc.streamlit.app/
 
 Hackathon: Neural Storm 2026
