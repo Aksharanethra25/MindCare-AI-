@@ -5,5 +5,4 @@ scikit-learn>=1.5
 Pillow>=10.0
 mediapipe>=0.10.21
 reportlab>=4.0
-supabase>=2.0
 gTTS>=2.5
