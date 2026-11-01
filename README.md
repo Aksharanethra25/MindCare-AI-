@@ -1,315 +1,216 @@
-
-🧠 MindCare AI
-
-An Educational Mental Wellbeing & AI/ML Support Platform
-
+🌿 MindCare AI
+An Educational Mental Wellbeing & Python and Machine Learning Support Platform
 Hackathon: Neural Storm 2026
 Track: Human Impact – HI-05
-Domain: Artificial Intelligence and Machine Learning
+Domain: Python and Machine Learning (Python & ML)
 Application: Streamlit Web Application
-
----
-
-📌 Table of Contents
-
-1. Project Overview
-2. Problem Statement
-3. Proposed Solution
-4. Project Objectives
-5. Key Features
-6. Application Modules
-7. Technologies Used
-8. Machine Learning Demonstration
-9. Dataset Description
-10. System Workflow
-11. System Requirements
-12. Installation and Setup
-13. How to Run the Application
-14. Results and Observations
-15. Advantages
-16. Limitations
-17. Privacy and Safety
-18. Future Enhancements
-19. Conclusion
-20. Project Links
-
----
-
-📌 1. Project Overview
-
-MindCare AI is an interactive mental wellbeing support and awareness platform developed using Python, Streamlit, and Machine Learning techniques.
-
-The application encourages users to reflect on their daily wellbeing, explore general support information, and understand how machine learning can identify patterns in sample wellbeing data.
-
-It combines interactive check-ins, a rule-based support assistant, data visualisation, and an educational ML demonstration in one web application.
-
-🚨 2. Problem Statement
-
-Mental wellbeing is an important part of overall health. However, people may find it difficult to recognise changes in their everyday wellbeing or know where to find appropriate support.
-
-There is a need for accessible digital tools that encourage self-reflection, improve awareness, and provide information about available support resources.
-
-💡 3. Our Proposed Solution
-
-MindCare AI provides a simple digital platform that helps users:
-
-- Reflect on their daily wellbeing.
-- Record optional personal reflections.
-- Explore general wellbeing suggestions.
-- Understand patterns through an illustrative ML demonstration.
-- Find information about appropriate support resources.
-
-Our goal is to encourage awareness, not to replace professional care.
-
-🎯 4. Project Objectives
-
-1. Promote awareness of mental wellbeing.
-2. Provide an interactive daily check-in experience.
-3. Offer general wellbeing information through a support assistant.
-4. Demonstrate machine learning using synthetic data.
-5. Present sample data through visualisations.
-6. Encourage users to seek appropriate human support when needed.
-
-✨ 5. Key Features
-
-Feature| Description
-🌤️ Daily Check-in| Record mood, energy and sleep reflections
-💬 Support Assistant| Explore predefined general wellbeing responses
-🤖 ML Demonstration| Discover sample patterns using K-Means clustering
-📊 Data Visualisation| View charts and sample wellbeing patterns
-🆘 Support Resources| Find information about trusted people and professional support
-🔒 Privacy Awareness| Avoid permanent storage of personal journal entries
-
-🧩 6. Application Modules
-
-6.1 🌤️ Daily Wellbeing Check-in
-
-- Mood reflection.
-- Energy-level selection.
-- Sleep reflection.
-- Optional journal entry.
-- Display of current check-in responses.
-
-6.2 💬 MindCare Support Assistant
-
-- Rule-based response system.
-- Predefined wellbeing suggestions.
-- General awareness information.
-- Encouragement to seek trusted human support.
-
-6.3 🤖 Machine Learning Demonstration
-
-- Synthetic wellbeing dataset.
-- Data preprocessing.
-- K-Means clustering.
-- Sample pattern grouping.
-- Visual representation of results.
-
-6.4 🆘 Support Resources
-
-- Trusted adult and family support.
-- School or college counselling information.
-- Qualified mental health professionals.
-- Local health services.
-- Emergency assistance information, including 112 in India.
-
-🛠️ 7. Technologies Used
-
-Technology| Purpose
-Python| Core programming language
-Streamlit| Interactive web application
-Pandas| Data handling and processing
-Scikit-learn| Machine learning demonstration
-NLTK| Natural language processing toolkit
-Matplotlib| Data visualisation
-NumPy| Numerical operations
-Google Colab| Development and experimentation
-GitHub| Version control and project hosting
-Streamlit Community Cloud| Application deployment
-
-🧠 8. Machine Learning Methodology
-
-The project demonstrates an unsupervised machine learning approach using K-Means Clustering.
-
-Workflow:
-
-1. Generate or load synthetic wellbeing data.
-2. Select numerical features.
-3. Preprocess the sample data.
-4. Apply K-Means clustering.
-5. Group similar sample records.
-6. Visualise the resulting clusters.
-
-Important: These clusters are illustrative data patterns. They are not diagnoses, clinical categories, individual risk scores, or predictions about real people.
-
-📂 9. Dataset Description
-
-The project uses a synthetic dataset created for educational and demonstration purposes.
-
-Example features include:
-
-- Mood-related sample values.
-- Energy-level values.
-- Sleep-related sample values.
-- Other illustrative numerical wellbeing attributes.
-
-Dataset characteristics:
-
-- Synthetic sample records.
-- No real patient records.
-- No personal medical history.
-- Intended only for educational ML experimentation.
-
-🔄 10. System Workflow
-
-          USER
-            |
-            v
-     MindCare AI Web App
-            |
-     +------+------+
-     |      |      |
-     v      v      v
-  Daily   Support   ML
- Check-in Assistant Demo
-     |      |      |
-     v      v      v
- Reflection General  Sample
- Results   Guidance Patterns
-     |      |      |
-     +------+------+
-            |
-            v
-     Support Resources
-            |
-            v
-     Responsible Awareness
-
-⚙️ 11. System Requirements
-
-Software Requirements
-
-- Python 3.x
-- Streamlit
-- Pandas
-- NumPy
-- Scikit-learn
-- Matplotlib
-- NLTK
-
-Development Environment
-
-- Google Colab or a compatible Python environment.
-- Web browser.
-- Internet connection for cloud deployment.
-
-🚀 12. Installation and Setup
-
+1. 📌 Project Overview
+MindCare AI is an interactive educational wellbeing platform developed using Python, Streamlit and Machine Learning concepts.
+It provides a friendly digital space where users can reflect on their daily wellbeing, record their moods, explore relaxation activities, interact with a supportive assistant and access useful support resources.
+The application combines Python-based development, machine-learning demonstrations and interactive wellbeing features in one platform.
+MindCare AI is an educational support prototype and is not a medical or diagnostic application.
+2. 🎯 Problem Statement
+Academic, social and personal responsibilities can affect everyday wellbeing. People may benefit from accessible digital tools that encourage self-reflection, positive habits and awareness of available support resources.
+MindCare AI aims to provide an interactive platform for everyday wellbeing awareness and educational support.
+3. 💡 Proposed Solution
+MindCare AI brings multiple wellbeing activities together in one easy-to-use web application.
+Users can:
+Explore facial landmarks through a camera-based demonstration.
+Complete personal wellbeing assessments.
+Record daily moods.
+Interact with a rule-based support assistant.
+Participate in mindful mini-games.
+Explore stress-relief activities.
+Receive general personalised suggestions.
+View wellbeing charts and reports.
+Explore basic machine-learning clustering.
+Access crisis and support resources.
+4. 🎯 Project Objectives
+Encourage everyday wellbeing awareness.
+Provide simple self-reflection tools.
+Promote mindful activities and positive habits.
+Demonstrate Python programming and machine-learning concepts.
+Provide multilingual navigation.
+Make support information easier to access.
+Develop an attractive and user-friendly web application.
+5. ✨ Key Features
+🌿 Beautiful Welcome Homepage
+👤 Demo User Registration and Login
+🌐 Five-language selection
+😊 Face Expression Studio
+📋 Wellbeing Assessment
+🤖 AI Support Assistant
+📅 Daily Mood Tracker
+🎮 Mindful Mini Games
+🧘 Stress Relief Studio
+✨ Personalised Suggestions
+🎙️ Voice Assistant
+📊 Wellbeing Insights
+🧪 Python and ML Playground
+📄 Weekly Wellness Report
+🆘 Crisis Support
+📚 Support Resources
+6. 🌐 Multilingual Support
+The application provides language selection for:
+English
+Tamil
+Malayalam
+Telugu
+Hindi
+The current prototype translates the main navigation and selected interface prompts. Some detailed feature content and responses remain in English.
+7. 🧩 Application Modules
+7.1 Welcome Homepage
+Introduces MindCare AI and provides access to the application's features.
+7.2 Face Expression Studio
+Allows users to capture a selfie and explore facial landmark points when the required MediaPipe package is available.
+It does not determine actual emotions or diagnose mental health.
+7.3 Wellbeing Assessment
+Allows users to reflect on mood, stress, sleep, energy, focus and daily activity.
+7.4 AI Support Assistant
+Provides basic rule-based supportive responses to user messages.
+7.5 Daily Mood Tracker
+Allows users to record their daily mood and optional notes.
+7.6 Mindful Mini Games
+Includes colour check-in, gratitude activity, observation challenge and emoji memory activity.
+7.7 Stress Relief Studio
+Provides breathing pauses, grounding activities, study resets and positive reflection.
+7.8 Personalised Suggestions
+Provides general suggestions based on the user's selected area of interest.
+7.9 Voice Assistant
+Supports audio recording, typed messages and optional spoken responses. Automatic speech transcription is not included.
+7.10 Wellbeing Insights
+Displays charts based on wellbeing assessments recorded during the current application session.
+7.11 Python and ML Playground
+Demonstrates the K-Means clustering algorithm using synthetic educational data.
+7.12 Weekly Wellness Report
+Creates a PDF summary from available assessment records.
+7.13 Crisis Support
+Provides general guidance for reaching trusted people and emergency assistance.
+7.14 Support Resources
+Provides links to relevant wellbeing and emergency support resources.
+8. 🧠 Machine Learning Demonstration
+The Python and ML Playground demonstrates the K-Means clustering algorithm.
+The demonstration:
+Uses synthetic sample data.
+Allows users to select the number of clusters.
+Displays the resulting cluster assignments.
+This is an educational machine-learning demonstration and does not predict mental health conditions.
+9. 📊 Dataset Description
+The current application uses synthetic sample data for its K-Means demonstration.
+User-entered mood and assessment information is maintained in Streamlit session state.
+The current version does not have a connected permanent database.
+10. 🔄 System Workflow
+Open the MindCare AI web application.
+Select a preferred language.
+Create a temporary demo account or log in.
+Enter the Welcome Homepage.
+Select a feature from the navigation sidebar.
+Complete assessments or activities.
+View available charts and reports.
+Access support resources when required.
+11. 🛠️ Technologies Used
+Technology
+Purpose
+Python
+Application programming
+Streamlit
+Web application interface
+Pandas
+Data handling
+NumPy
+Numerical operations
+Scikit-learn
+K-Means clustering
+MediaPipe
+Optional facial landmark processing
+Pillow
+Image processing
+ReportLab
+PDF report generation
+gTTS
+Optional text-to-speech
+GitHub
+Source code management
+Streamlit Community Cloud
+Application deployment
+12. 💻 System Requirements
+Python 3.11 or another compatible Python version.
+Internet connection.
+Modern web browser.
+Camera access for the selfie feature.
+Required Python packages listed in requirements.txt.
+13. ⚙️ Installation and Setup
 Clone the repository:
-
-git clone https://github.com/Aksharanethra25/MindCare-AI.git
-
-Navigate to the project directory:
-
-cd MindCare-AI
-
-Install the dependencies:
-
+git clone https://github.com/Aksharanethra25/MindCare-AI-.git
+Move into the project directory:
+cd MindCare-AI-
+Install dependencies:
 pip install -r requirements.txt
-
-▶️ 13. Run the Application
-
-Start the Streamlit application:
-
+Run the application:
 streamlit run app.py
-
-Open the local application using the URL displayed in the terminal.
-
-📊 14. Results and Observations
-
-The developed prototype demonstrates:
-
-- An interactive wellbeing check-in interface.
-- A rule-based support assistant.
-- Sample data processing using Python.
-- K-Means clustering on synthetic data.
-- Visual representation of sample patterns.
-- A dedicated support resources section.
-
-The application demonstrates how data science and interactive web technologies can be combined for educational wellbeing awareness.
-
-🌟 15. Advantages
-
-- Simple and interactive user interface.
-- Accessible through a web browser.
-- Combines multiple modules in one application.
-- Demonstrates practical Python and ML concepts.
-- Uses synthetic data for experimentation.
-- Encourages responsible wellbeing awareness.
-
-⚠️ 16. Limitations
-
-- This is an educational prototype.
-- The ML demonstration uses synthetic data.
-- The support assistant uses predefined rules.
-- The application is not clinically validated.
-- It does not diagnose mental health conditions.
-- It does not perform clinical crisis detection.
-- It cannot replace qualified professional support.
-
-🔐 17. Privacy and Safety
-
-MindCare AI is designed with responsible technology principles.
-
-- No permanent journal storage is intended in the current prototype.
-- Synthetic data is used for the ML demonstration.
-- Users are encouraged to seek appropriate human support.
-- The application does not provide medical diagnoses.
-- Emergency assistance should be obtained through appropriate local services.
-
-🔮 18. Future Enhancements
-
-Potential future improvements include:
-
-- Additional wellbeing visualisations.
-- Multilingual interface support.
-- Improved accessibility.
-- More extensive machine learning experiments.
-- Secure and consent-based data management.
-- Integration with verified support-resource directories.
-- Professional review and validation before any clinical functionality is considered.
-
-Any future clinical screening or crisis-detection functionality would require qualified professional oversight, validation, privacy safeguards, and safety testing.
-
-🏁 19. Conclusion
-
-MindCare AI demonstrates how Python, Streamlit, data visualisation, and machine learning techniques can be combined to develop an educational mental wellbeing support platform.
-
-By bringing together interactive reflection, general support information, and an illustrative ML demonstration, the project highlights the potential of responsible technology to encourage wellbeing awareness.
-
-Technology can support awareness, but human care remains essential.
-
-🔗 20. Project Links
-
-- 💻 GitHub Repository:
-  https://github.com/Aksharanethra25/MindCare-AI
-
-- 🌐 Live Application:
-  https://aksharanethra25-mindcare-ai--app-mqe0vc.streamlit.app/
-
----
-
-<p align="center">
-  <b>Developed for Neural Storm 2026</b><br/>
-  Project: MindCare AI<br/>
-  Track: HI-05 – Mental Health Screening & Crisis Detection<br/>
-  Domain: AI / ML and Human Impact
-</p><p align="center">
-  <i>Building technology that encourages awareness, understanding, and responsible support.</i>
-</p>
----
-
-Developed for Neural Storm 2026
-Project: MindCare AI
-Track: HI-05 – Mental Health Screening & Crisis Detection
-Domain: AI / ML and Human Impact
+14. 🚀 How to Run the Application
+Open the deployed MindCare AI website.
+Select your preferred language.
+Create a demo account.
+Log in during the current session.
+Explore the available application modules.
+Try the wellbeing activities and machine-learning demonstration.
+15. 📈 Results and Observations
+The prototype brings multiple educational wellbeing features into a single Streamlit application.
+It demonstrates:
+Interactive web application development using Python.
+Basic wellbeing self-reflection.
+Daily mood recording.
+Facial landmark visualisation when supported.
+Rule-based chatbot responses.
+K-Means clustering.
+Data visualisation.
+PDF report generation.
+Actual performance and deployment results should be documented after testing.
+16. 🌟 Advantages
+Simple and interactive interface.
+Multiple wellbeing features in one application.
+Five-language navigation.
+Educational machine-learning demonstration.
+Interactive mini-games.
+Accessible through a web browser.
+Support-resource information in one place.
+17. ⚠️ Limitations
+Demo accounts are stored only in Streamlit session state.
+Passwords in the demo account implementation are not suitable for real authentication.
+User records are not permanently stored in a database.
+The chatbot uses rule-based responses, not a connected generative AI model.
+Automatic speech-to-text is not implemented.
+Voice recording and spoken output depend on browser and network support.
+Facial landmarks do not reveal a person's actual emotions.
+Detailed translations are not yet complete across every feature.
+Machine-learning data is synthetic.
+18. 🔐 Privacy and Safety
+MindCare AI is an educational wellbeing prototype.
+Do not enter sensitive personal information.
+Do not use real or reused passwords in demo accounts.
+Facial images are processed for the current demonstration and are not intentionally stored by the application.
+The application is not a replacement for qualified professional support.
+For immediate emergencies in India, contact 112.
+19. 🔮 Future Enhancements
+Secure authentication using Supabase.
+Permanent user-specific database storage.
+Complete translation of every feature into all five languages.
+Advanced voice input and speech recognition.
+Improved facial landmark visualisation.
+More interactive mindful games.
+Expanded Python and machine-learning demonstrations.
+Improved personalised recommendations.
+Enhanced PDF reporting.
+More accessible and responsive interface design.
+20. 🏁 Conclusion
+MindCare AI demonstrates how Python programming and machine-learning concepts can be combined with Streamlit to create an interactive educational wellbeing platform.
+By bringing self-reflection tools, mindful activities, visualisations and support resources together, the project aims to encourage everyday wellbeing awareness through an accessible digital experience.
+MindCare AI – Pause. Reflect. Recharge. 🌿
+🔗 Project Links
+GitHub Repository:
+https://github.com/Aksharanethra25/MindCare-AI-
+Live Application:
+https://aksharanethra25-mindcare-ai--app-mqe0vc.streamlit.app/
+Hackathon: Neural Storm 2026
+Domain: Python and Machine Learning (Python & ML)
