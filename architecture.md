@@ -1,75 +1,192 @@
-🏗️ MindCare AI – System Architecture
+MindCare AI – System Architecture
 
-1. Introduction
+1. Project Overview
 
-MindCare AI is an educational mental wellbeing awareness application developed using Python and Streamlit.
+MindCare AI is an educational wellbeing support application developed using Python, Streamlit, and Machine Learning concepts.
 
-The system combines interactive user input, predefined support responses, synthetic data processing, and machine learning demonstrations.
+It provides interactive wellbeing activities, mood tracking, basic support conversations, visual insights, and educational machine learning demonstrations.
 
-2. System Architecture
+The application is designed as a learning prototype and is not a medical or diagnostic tool.
 
-The application consists of four main modules:
+2. Technology Stack
 
-Module 1: User Interface
+Technology| Purpose
+Python| Core application development
+Streamlit| Web application interface
+Pandas| Data handling and analysis
+NumPy| Numerical operations
+Scikit-learn| Machine Learning demonstration
+MediaPipe| Facial landmark visualization
+Pillow| Image processing
+ReportLab| PDF report generation
+Matplotlib / Streamlit charts| Data visualization
 
-- Developed using Streamlit.
-- Provides navigation between application pages.
-- Collects optional wellbeing reflections.
+3. System Modules
 
-Module 2: Wellbeing Check-in
+3.1 User Interface Module
 
-- Collects mood, energy, and sleep-related responses.
-- Displays the current check-in information.
-- Provides a simple reflection experience.
+- Welcome page and dashboard
+- Sidebar navigation
+- Interactive buttons and forms
+- Multilingual interface options
 
-Module 3: Support Assistant
+3.2 Face Expression Studio
 
-- Uses predefined keyword-based rules.
-- Provides general wellbeing information.
-- Encourages appropriate human support.
+- Captures an image using the camera input.
+- Uses MediaPipe to identify facial landmarks.
+- Displays facial landmark points and connections.
+- Shows basic visible facial-expression observations.
 
-Module 4: Machine Learning
+Limitation: Facial landmarks and visible expressions cannot reliably determine a person's actual emotions or mental health condition.
+
+3.3 Wellbeing Assessment
+
+- Collects user-selected wellbeing information.
+- Records mood, stress, sleep, energy, and focus.
+- Displays feedback based on user responses.
+
+3.4 AI Support Assistant
+
+- Provides basic rule-based support responses.
+- Supports the languages implemented in the application.
+- Offers general educational wellbeing guidance.
+
+3.5 Daily Mood Tracker
+
+- Allows users to record daily mood check-ins.
+- Maintains records during the application session.
+- Displays mood history.
+
+3.6 Mindful Mini Games
+
+- Includes simple interactive activities.
+- Provides observation, memory, and gratitude exercises.
+- Encourages short mindful breaks.
+
+3.7 Stress Relief Assistant
+
+- Provides guided breathing activities.
+- Includes grounding exercises.
+- Offers study-break and relaxation suggestions.
+
+3.8 Personalised Recommendations
+
+- Provides suggestions based on user-selected needs.
+- Offers general study, sleep, relaxation, and wellbeing tips.
+
+3.9 Voice Assistant
+
+- Provides an audio recording interface.
+- Supports typed messages as an alternative.
+
+Limitation: Audio recording does not automatically provide speech-to-text transcription or spoken responses unless those capabilities are separately implemented.
+
+3.10 Wellbeing Insights
+
+- Displays recorded wellbeing information.
+- Uses charts to visualize available session data.
+- Helps users observe patterns in their check-ins.
+
+3.11 Machine Learning Demonstration
 
 - Uses synthetic wellbeing data.
-- Performs data preprocessing.
-- Applies K-Means clustering.
-- Displays illustrative sample patterns.
+- Demonstrates the K-Means clustering algorithm.
+- Shows how user-selected numerical features can be grouped.
 
-3. System Workflow
+This is an educational ML demonstration, not a mental health prediction model.
 
-1. User opens the MindCare AI application.
-2. User selects an application module.
-3. The check-in module collects optional responses.
-4. The support assistant provides predefined information.
-5. The ML module processes synthetic sample data.
-6. Visualisations display the resulting sample patterns.
-7. The support resources page provides further guidance.
+3.12 Weekly Wellness Report
 
-4. Technology Architecture
+- Summarizes available wellbeing records.
+- Displays charts and basic statistics.
+- Generates a downloadable PDF report.
 
-Layer| Technology
-Frontend| Streamlit
-Programming| Python
-Data Processing| Pandas, NumPy
-Machine Learning| Scikit-learn
-Visualisation| Matplotlib
-Development| Google Colab
-Repository| GitHub
-Deployment| Streamlit Community Cloud
+3.13 Crisis Support and Resources
 
-5. Data Flow
+- Displays supportive guidance and relevant resources.
+- Encourages users to contact a trusted person or qualified professional.
+- Provides emergency contact information where appropriate.
 
-The ML demonstration uses synthetic data rather than personal health records.
+4. System Workflow
 
-Synthetic Dataset → Data Preprocessing → Feature Scaling → K-Means Clustering → Sample Visualisation
+1. The user opens the MindCare AI application.
+2. The user selects a feature from the navigation menu.
+3. The application collects the required user input.
+4. Python processes the input according to the selected module.
+5. The application displays feedback, activities, charts, or reports.
+6. Relevant information is maintained in Streamlit session state.
 
-6. Security and Privacy
+5. Machine Learning Workflow
 
-- No permanent journal storage is intended in the current prototype.
-- Synthetic data is used for ML experiments.
-- No clinical diagnosis is generated.
-- The application is not a substitute for professional care.
+The educational ML demonstration follows these steps:
 
-7. Conclusion
+1. Generate or load synthetic wellbeing data.
+2. Select numerical features.
+3. Preprocess the data.
+4. Apply the K-Means clustering algorithm.
+5. Display the resulting clusters.
+6. Present a basic cluster summary.
 
-The modular architecture makes MindCare AI easier to understand, maintain, and extend. It demonstrates the integration of web development, data processing, and machine learning for responsible wellbeing awareness.
+6. Data Management
+
+- Streamlit session state is used to maintain application data during a session.
+- The current prototype does not use a permanent database.
+- Session records may be lost when the session resets.
+- Camera images should not be treated as permanent user records.
+
+7. Application Architecture
+
+                 USER
+                   |
+                   v
+          STREAMLIT INTERFACE
+                   |
+          NAVIGATION MODULE
+                   |
+     +-------------+-------------+
+     |             |             |
+     v             v             v
+  WELLBEING     SUPPORT       FACE LANDMARK
+  FEATURES      FEATURES      VISUALIZATION
+     |             |             |
+     +-------------+-------------+
+                   |
+                   v
+           PYTHON PROCESSING
+                   |
+       +-----------+-----------+
+       |           |           |
+       v           v           v
+   PANDAS /    SCIKIT-LEARN   MEDIAPIPE
+    NUMPY       K-MEANS
+       |           |           |
+       +-----------+-----------+
+                   |
+                   v
+          RESULTS AND INSIGHTS
+                   |
+          +--------+--------+
+          |                 |
+          v                 v
+      CHARTS             PDF REPORT
+
+8. Deployment
+
+The application is designed to run using Streamlit.
+
+Deployment platform: Streamlit Community Cloud
+
+Dependencies are listed in "requirements.txt".
+
+9. Project Limitations
+
+- The application is an educational prototype.
+- It does not diagnose or treat mental health conditions.
+- Facial landmark observations are not reliable emotion measurements.
+- The support assistant uses predefined responses rather than a trained conversational AI model.
+- The current prototype does not provide permanent database storage.
+- Voice recording does not itself guarantee speech recognition or speech generation.
+
+10. Conclusion
+
+MindCare AI demonstrates how Python, Streamlit, data analysis, computer vision, and Machine Learning concepts can be combined to develop an interactive educational wellbeing application.
