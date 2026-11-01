@@ -1,10 +1,11 @@
-"""
 MindCare AI - Machine Learning Module
-Educational demonstration using synthetic wellbeing data.
 
-IMPORTANT:
-This model demonstrates sample data patterns only.
-It does not diagnose, screen, or predict mental health conditions.
+Purpose:
+Demonstrates K-Means clustering using synthetic wellbeing data.
+
+Important:
+This is an educational machine learning demonstration.
+It does not diagnose, predict, or classify mental health conditions.
 """
 
 import numpy as np
@@ -15,128 +16,228 @@ from sklearn.preprocessing import StandardScaler
 
 
 # --------------------------------------------------
-# 1. Generate Synthetic Wellbeing Dataset
+# 1. CONFIGURATION
+# --------------------------------------------------
+
+FEATURE_COLUMNS = [
+    "mood_score",
+    "energy_score",
+    "sleep_hours",
+    "stress_level"
+]
+
+
+# --------------------------------------------------
+# 2. GENERATE SYNTHETIC WELLBEING DATA
 # --------------------------------------------------
 
 def generate_synthetic_data(n_samples=150, random_state=42):
-    """Create artificial wellbeing data for demonstration."""
+    """
+    Generate sample wellbeing data for ML demonstration.
 
-    np.random.seed(random_state)
+    Returns:
+        pandas DataFrame
+    """
+
+    if n_samples < 3:
+        raise ValueError("n_samples must be at least 3.")
+
+    if n_samples > 100000:
+        raise ValueError("n_samples is too large for this demonstration.")
+
+    rng = np.random.default_rng(random_state)
 
     data = pd.DataFrame({
-        "mood_score": np.random.randint(1, 11, n_samples),
-        "energy_score": np.random.randint(1, 11, n_samples),
+        "mood_score": rng.integers(1, 11, n_samples),
+        "energy_score": rng.integers(1, 11, n_samples),
         "sleep_hours": np.round(
-            np.random.uniform(3, 10, n_samples), 1
+            rng.uniform(3.0, 10.0, n_samples), 1
         ),
-        "stress_level": np.random.randint(1, 11, n_samples)
+        "stress_level": rng.integers(1, 11, n_samples)
     })
 
     return data
 
 
 # --------------------------------------------------
-# 2. Prepare Dataset
+# 3. VALIDATE DATA
+# --------------------------------------------------
+
+def validate_data(data):
+    """
+    Check whether the required columns and values exist.
+    """
+
+    if not isinstance(data, pd.DataFrame):
+        raise TypeError("Input must be a pandas DataFrame.")
+
+    missing_columns = [
+        column for column in FEATURE_COLUMNS
+        if column not in data.columns
+    ]
+
+    if missing_columns:
+        raise ValueError(
+            f"Missing required columns: {missing_columns}"
+        )
+
+    if data.empty:
+        raise ValueError("Input data cannot be empty.")
+
+    if data[FEATURE_COLUMNS].isnull().any().any():
+        raise ValueError("Input data contains missing values.")
+
+    if not data[FEATURE_COLUMNS].apply(
+        lambda column: pd.api.types.is_numeric_dtype(column)
+    ).all():
+        raise ValueError("All ML features must be numeric.")
+
+    if not np.isfinite(
+        data[FEATURE_COLUMNS].to_numpy(dtype=float)
+    ).all():
+        raise ValueError("Input data contains invalid numeric values.")
+
+    return True
+
+
+# --------------------------------------------------
+# 4. DATA PREPROCESSING
 # --------------------------------------------------
 
 def preprocess_data(data):
-    """Scale numerical features for clustering."""
-
-    features = [
-        "mood_score",
-        "energy_score",
-        "sleep_hours",
-        "stress_level"
-    ]
-
-    scaler = StandardScaler()
-    scaled_data = scaler.fit_transform(data[features])
-
-    return scaled_data, scaler
-
-
-# --------------------------------------------------
-# 3. Train K-Means Clustering Model
-# --------------------------------------------------
-
-def train_wellbeing_model(data=None, n_clusters=3):
     """
-    Train an illustrative K-Means model.
+    Standardize the numerical features.
 
     Returns:
-        data: Dataset with cluster assignments
-        model: Trained K-Means model
-        scaler: Fitted feature scaler
+        Scaled NumPy array
+    """
+
+    validate_data(data)
+
+    scaler = StandardScaler()
+
+    scaled_data = scaler.fit_transform(
+        data[FEATURE_COLUMNS]
+    )
+
+    return scaled_data
+
+
+# --------------------------------------------------
+# 5. TRAIN K-MEANS MODEL
+# --------------------------------------------------
+
+def train_wellbeing_model(
+    data=None,
+    n_clusters=3,
+    random_state=42
+):
+    """
+    Train a K-Means clustering model.
+
+    Returns:
+        model, scaled_data, scaler
     """
 
     if data is None:
         data = generate_synthetic_data()
 
-    if n_clusters < 2 or n_clusters > len(data):
+    validate_data(data)
+
+    if not isinstance(n_clusters, int) or isinstance(
+        n_clusters, bool
+    ):
+        raise ValueError("n_clusters must be an integer.")
+
+    if n_clusters < 1 or n_clusters > len(data):
         raise ValueError(
-            "Number of clusters must be between 2 and dataset size."
+            "n_clusters must be between 1 and the number of rows."
         )
 
-    scaled_data, scaler = preprocess_data(data)
+    scaler = StandardScaler()
+
+    scaled_data = scaler.fit_transform(
+        data[FEATURE_COLUMNS]
+    )
 
     model = KMeans(
         n_clusters=n_clusters,
-        random_state=42,
+        random_state=random_state,
         n_init=10
     )
 
-    data = data.copy()
-    data["cluster"] = model.fit_predict(scaled_data)
+    model.fit(scaled_data)
 
-    return data, model, scaler
+    return model, scaled_data, scaler
 
 
 # --------------------------------------------------
-# 4. Generate Cluster Summary
+# 6. GENERATE CLUSTER SUMMARY
 # --------------------------------------------------
 
 def get_cluster_summary(data):
-    """Calculate average sample values for each cluster."""
+    """
+    Generate a summary of the clusters.
 
-    features = [
-        "mood_score",
-        "energy_score",
-        "sleep_hours",
-        "stress_level"
-    ]
+    The input DataFrame must contain a 'cluster' column.
+    """
 
-    summary = data.groupby("cluster")[features].mean()
+    validate_data(data)
 
-    return summary.round(2)
+    if "cluster" not in data.columns:
+        raise ValueError(
+            "Data must contain a 'cluster' column."
+        )
+
+    summary = (
+        data.groupby("cluster")[FEATURE_COLUMNS]
+        .mean()
+        .round(2)
+    )
+
+    return summary
 
 
 # --------------------------------------------------
-# 5. Run Standalone Demonstration
+# 7. RUN DEMONSTRATION
 # --------------------------------------------------
 
-if __name__ == "__main__":
+def run_demo():
 
-    print("=" * 50)
-    print("       MINDCARE AI - ML DEMONSTRATION")
-    print("=" * 50)
+    print("\n====================================")
+    print("       MINDCARE AI - ML DEMO")
+    print("====================================")
 
-    dataset = generate_synthetic_data()
+    # Generate sample data
+    data = generate_synthetic_data()
 
-    results, model, scaler = train_wellbeing_model(
-        dataset,
+    print("\nSample Wellbeing Data:")
+    print(data.head())
+
+    # Train model
+    model, scaled_data, scaler = train_wellbeing_model(
+        data=data,
         n_clusters=3
     )
 
-    print("\nSample Dataset:")
-    print(results.head(10))
+    # Add cluster labels
+    data["cluster"] = model.labels_
+
+    # Display cluster summary
+    summary = get_cluster_summary(data)
 
     print("\nCluster Summary:")
-    print(get_cluster_summary(results))
+    print(summary)
 
-    print("\nNumber of Sample Records:", len(results))
-    print("Number of Clusters:", model.n_clusters)
+    print("\nNumber of Clusters:", model.n_clusters)
+    print("Number of Records:", len(data))
 
-    print("\nML Demonstration Completed Successfully!")
+    print("\nML demonstration completed successfully.")
 
-    print("\nNote: These are artificial data patterns,")
-    print("not clinical assessments or predictions.")
+
+# --------------------------------------------------
+# 8. MAIN
+# --------------------------------------------------
+
+if __name__ == "__main__":
+    run_demo()
